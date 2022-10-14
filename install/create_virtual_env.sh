@@ -6,8 +6,8 @@ function createVirtualEnv {
         echo "Virtual environment env already exists"
     else
         echo "Create virtual environment env"
-        python -m pip install virtualenv
-        python -m venv env 
+        python3 -m pip install virtualenv
+        python3 -m venv env 
     fi	
 
     echo "Activate virtual environment env"
