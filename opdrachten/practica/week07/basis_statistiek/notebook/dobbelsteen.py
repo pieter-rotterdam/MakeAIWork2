@@ -8,8 +8,6 @@ class Dobbelsteen:
     def __init__(self):
         self.values = set(range(1, 7))  
         self.roll()
-        self.history()
-        self.getHistory()
         
         # https://realpython.com/python-dice-roll
         self.faces = {
@@ -72,28 +70,25 @@ class Dobbelsteen:
 
         }
 
-    def getList(self):
-        return list(self.values)
-
-    def roll(self):
-        self.number = random.choice(self.getList())
-
-    def getNumber(self):
-        return self.number
-
-    def show(self):        
-        return str(self.faces.get(self.number))
+    def getList(self):    
+        return list(self.values) #hier wordt een lijst van de set met range 1-7 aangeroepen
     
-    def history(self):
-        self.history = "2"
+    def roll(self):
+        self.number = random.choice(self.getList()) # hier kiest hij een random no uit de lijst
+        # self.history = 
+        
+    def getNumber(self):
+        return self.number # hier geeft hij de waarde die in roll random bepaald is terug als een variabele
     
     def getHistory(self):
-        return self.history
-        
+        return self.number
+    
+    def show(self):        
+        return str(self.faces.get(self.number)) # hier matcht hij nummer met key vd dobbelsteen voor het plaatje
+
 def main():
     d = Dobbelsteen()
     d.roll()
-    d.history()
     d.show()
 
 if __name__ == main():
