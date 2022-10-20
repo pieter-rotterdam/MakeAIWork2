@@ -1,0 +1,19 @@
+Bootstrap - beginnen vanaf 0 en proberen
+Transfer learning - gebruik van pre-trained modellen
+
+Veel features of meer compact model En dan met paar voorbeelden hertrainen
+
+Zoek naar model voor plaatjes en pas dit aan? Is er een model dat kijkt naar rottend fruit
+
+Als je de laatste lagen aanpast heb je minder epochs nodig om het te trainen op de nieuwe situatie
+
+
+Begin met van scratch variant en wacht af tot er meer input van docenten komt op transfer learning
+
+zie slides kickof voor de 4 onderdelen
+
+
+
+
+
+
