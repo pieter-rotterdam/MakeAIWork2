@@ -78,7 +78,7 @@ Klasse 2: AQL tussen 0.4 en 2.5
 Klasse 3: AQL tussen 2.5 en 6.5
 Afgekeurd: AQL groter dan 6.5
 
-Schrijf ook een compact programma dat op basis van de validatie- en test-set van de appels een batch samenstelt, waarop je een inspectie kunt uitvoeren. Genereer bijvoorbeeld een batch met een sample size van 80 appels, waarvan 72 gezond, 4 met blotch, 1 met rot en 3 met scab, en voer dit aan je afwijkingherkenner. Hieruit moet dan het juiste kwaliteitslabel rollen.
+Schrijf ook een compact programma dat op basis van de validatie- en test-set van de appels een batch samenstelt, waarop je een inspectie kunt uitvoeren. 
 
 Statistieken
 

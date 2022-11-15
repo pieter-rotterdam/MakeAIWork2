@@ -1,0 +1,2 @@
+model_checkpoint_path: "/Users/macbookpro/MakeAiWork2/projects/apple_disease_classification/model.tflearn"
+all_model_checkpoint_paths: "/Users/macbookpro/MakeAiWork2/projects/apple_disease_classification/model.tflearn"
