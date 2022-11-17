@@ -14,6 +14,8 @@ import pickle
 with open('../../jsonfile/intents.json') as file:
     data = json.load(file)
 
+
+
 # print (data['intents'])
 #pickle and try checks if there's already a model and data only runs code if there isn't
 
@@ -106,7 +108,7 @@ def chat():
         if inp.lower() == 'quit':
             break
 
-        results = model.predict([bag_of_words(inp, words)])
+        results = model.predict[bag_of_words(inp, words)])
         results_index = numpy.argmax(results)
         tag = labels[results_index]
 
