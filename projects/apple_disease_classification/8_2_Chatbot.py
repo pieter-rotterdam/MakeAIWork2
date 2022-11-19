@@ -3,7 +3,7 @@ import nltk
 # nltk.download('punkt')
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
-
+import random as python_random
 import numpy
 import tflearn
 import tensorflow as tf
@@ -14,7 +14,19 @@ import pickle
 with open('../../jsonfile/intents.json') as file:
     data = json.load(file)
 
+# The below is necessary for starting Numpy generated random numbers
+# in a well-defined initial state.
+numpy.random.seed(123)
 
+# The below is necessary for starting core Python generated random numbers
+# in a well-defined state.
+python_random.seed(123)
+
+# The below set_seed() will make random number generation
+# in the TensorFlow backend have a well-defined initial state.
+# For further details, see:
+# https://www.tensorflow.org/api_docs/python/tf/random/set_seed
+tf.random.set_seed(1234)
 
 # print (data['intents'])
 #pickle and try checks if there's already a model and data only runs code if there isn't
@@ -120,3 +132,7 @@ def chat():
 
 chat()
 
+{countnormal} replace by (countnormal)
+
+de uitkomst is countnormal
+de uitkomst is 80

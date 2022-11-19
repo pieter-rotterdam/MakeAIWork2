@@ -1,70 +1,65 @@
-{"intents": [
+{ "intents": [
         {"tag": "greeting",
-         "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up"],
-         "responses": ["Hello Pink Lady employee!", "Good to see you again Pink Lady!", "Hi there Pink Lady, how can I help the Pink Lady staff?"],
-         "context": [""]
+        "patterns": ["Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up"],
+        "responses": ["Hello Pink Lady employee!", "Good to see you again Pink Lady!", "Hi there Pink Lady employee, how can I help?"],
+        "context": [""]
         },
         {"tag": "goodbye",
-         "patterns": ["cya", "See you later", "Goodbye", "I am Leaving", "Have a Good day"],
-         "responses": ["Sad to see you go :(", "Talk to you later Pink Lady", "Goodbye Pink Lady! "],
-         "context": [""]
-        },
-        {"tag": "noanswer",
-        "patterns": [""],
-        "responses": ["Sorry, can't understand you", "Please give me more info", "Not sure I understand"],
+        "patterns": ["cya", "See you later", "Goodbye", "I am Leaving", "Have a Good day"],
+        "responses": ["And they lived apple-ly ever after", "Talk to you later Pink Lady, I apple-solutely love you!", "Goodbye Pink Lady!, I apple-laud your great work "],
         "context": [""]
-        },
-        {"tag": "help",
-        "patterns": ["How you could help me?", "What you can do?", "What help you provide?", "How can you be helpful?", "What support is offered"],
-        "responses": ["I can provide you with the information obtained in the apple AQL process", "By offering easy access to information from the apple quality control batches, please ask a question on the batch?"],
-        "context": [""]
-        },
+        },            
         {"tag": "statistics",
-        "patterns": ["Lookup statistics on apple batches", "Searching stats on apple quality control", "I want help on AQL data", "AQL lookup for apples", "finding AQL details" ],
-        "responses": ["The last batch of (noInBatch) apples contained (nbrBlotch) Blotched, (nbrNormal) Normal, (nbrRot) and (nbrScab) apples. In total (nbrRej) apples were rejected in this batch", "The last batch of (noInBatch) apples contained (percBlotched)% Blotched, (percNormal%) Normal, (percRot)% Rot and (percScab)% Scabbed apples. In total (percRej)% of the apples were rejected in this batch"],
+        "patterns": ["statistics", "stats", "data", "information", "details", "outcome", "quality", "evaluate", "score", "how can i use", "what can i do with" ],
+        "responses": ["{batchStatus}\n The batch contained {nbrInBatch} apples.\n {nbrNormal} apple(s), representing {perNormal}% of the batch is/are healthy.\n {nbrBlotch} apple(s), representing {perBlotch}% of the batch is/are blotched.\n {nbrRot} apple(s), representing {perRot}% of the batch is/are rot. \n and {nbrScab} apple(s), representing {perScab}% of the batch is/are scabbed apples.\n In total {nbrRej} apple(s) representing {perRej}% of the batch have been rejected."], 
         "context": [""]
         },
         {"tag": "blotch",
-        "patterns": ["  ", "how many blotched apples", "what percentage blotched apples", "are there blotched apples in the batch?", "blotch?", "is blotch detected in the batch of apples?"],
-        "responses": ["Out of (noInBatch) apples (nbrBlotch) were blotched, this is (percBlotch)%" , "(percBlotch)% of the apples were rejected, this equals to (nbrBlotch) apples"],
+        "patterns": ["blotched", "blotch"],
+        "responses": ["Out of {nbrInBatch} apples, {nbrBlotch} apple(s), representing {perBlotch}% of the batch is/are blotched", "{perBlotch}% of the apples were blotched, this equals to {nbrBlotch} apple(s) in a sample of {nbrInBatch} apples"],
         "context": [""]
         },
         {"tag": "normal",
-        "patterns": ["  ", "how many Normal apples", "what percentage good apples", "are there acceptable apples in the batch?", "Healthy?"],
-        "responses": ["Out of (noInBatch) apples (nbrNormal) were Normal this is (percNormal)%" , "(percNormal)% of the apples were normal, this equals to (nbrNormal) apples"],
+        "patterns": ["Normal", "good", "acceptable", "healthy?"],
+        "responses": ["In the batch of {nbrInBatch}, {nbrNormal} apples, representing {perNormal}% of the batch were healthy", "{perNormal}% of the apples in the batch were normal, this ammounts to  {nbrNormal} apples"],
         "context": [""]
         },
         {"tag": "rot",
-        "patterns": ["  ", "how many Rot apples", "what percentage rotten apples", "are there Rotted apples in the batch?", "Is Rot detected in the batch of op apples?"],
-        "responses": ["Out of (noInBatch) apples (nbrRot) were Rot, this is (percRot)%" , "(percRot)% of the apples were rejected, this equals to (nbrRot) apples"],
+        "patterns": ["rot", "rotten", "rotting", "rotted"],
+        "responses": ["Out of {nbrInBatch} apples in the batch, {nbrRot} apple(s), representing {perRot}% of the batch is/are rot", "{perRot}% of the apples were rot, this ammounts to {nbrRot} apple(s) in a sample of {nbrInBatch}"],
         "context": [""]
         },
         {"tag": "scab",
-        "patterns": ["  ", "how many Scabbed apples", "what percentage Scabbed apples", "are there Scabbed apples in the batch?", "is scab detected in the batch?"],
-        "responses": ["Out of (noInBatch) apples (nbrScab) were Scabbed, this is (percScab)%" , "(percScab)% of the apples were rejected, this equals to (nbrScab) apples"],
+        "patterns": ["scabbed", "scab", "scabbing"],
+        "responses": ["Out of {nbrInBatch} apples {nbrScab} is/are Scabbed, this is {perScab}%", "{perScab}% of the apples were scabbed, this ammounts to {nbrScab} apple(s)"],
         "context": [""]
         },
-        
         {"tag": "bad",
-        "patterns": ["  ", "how many bad apples", "what percentage sick apples", "are there defect apples in the batch?", "unhealthy?", "what diseases are in the batch"],
-        "responses": ["Out of (noInBatch) apples (nbrRej) were Rejected, this is (percRej)%" , "(percRej)% of the apples were rejected, this equals to (nbrRej) apples"],
+        "patterns": ["bad", "sick", "disease", "diseased", "defect", "defects", "defected", "unhealthy?", "diseases"],
+        "responses": ["Out of {nbrInBatch} apples {nbrRej} representing {perRej}% of the batch, were unhealthy.\n among them is/are {nbrRot} rotten, {nbrScab} scabbed and {nbrBlotch} blotched apples", "{perRej}% of the apples were unhealthy, this equals to {nbrRej} apple(s)\n Among them were {nbrRot} rotten, {nbrScab} scabbed and {nbrBlotch} blotched apple(s)"],
         "context": [""]
-        },
-
-        {"tag": "status",
-        "patterns": ["how was the last batch tested", "how was the quality of the tested batch", "what is the outcome of the last batch", "how did the batch rate", "batchscore" , "what is the status of the test batch", "was the batch rejected", "what can i do with the last batch"],
-        "responses": ["(batchStatus)"],
-        "context_set": [""]
         },
         {"tag": "name",
         "patterns": ["How may I call you", "what should I call you", "whats your name?"],
-        "responses": ["You can call me Tim Apple.", "I'm Tim Apple!", "I'm Tim Cook aka Tim Apple."],
+        "responses": ["You can call me Tim Apple\n A core belief is that apple puns make me smile", "I'm Tim Apple!\n and you’re so a-peel-ing", "I'm Tim Cook \n aka Tim Apple."],
         "context_set": [""]
         },
-        {"tag": "info",
-        "patterns": ["Id like to know something", "what do you reccommend?", "could i get some info on apples", "what is on the menu"],
-        "responses": ["I provide info on apple quality control, you can ask about stats and diseases in batches of checked apples ", "Apples, Apple sauce and Apple syrup are on the menu! They are suitable destinations for the apples from this test."],
+        {"tag": "help",
+        "patterns": ["help", "reccommendation?",  "recommend"],
+        "responses": ["I provide info on apple quality control.\n You can ask about diseases in apples and the results of a batch of tested apples ", 
+        "Apples, Apple sauce and Apple syrup are on the menu!\n They are suitable destinations for the apples from this test.\n You can ask me about the statistics"],
+        "context_set": [""]
+        },
+        {"tag": "more",
+        "patterns": ["more", "extra",  "additional"],
+        "responses": ["If you type in the word 'statistics' I'll provide them all", 
+        "context_set": [""]
+        },
+        {"tag": "joke",
+        "patterns": ["funny", "joke", "laugh?", "pun", "pleasantry", "gag"],
+        "responses": ["What’s an apple’s favorite movie?\n Mr and Mr Smith", "Who’s an apple’s favorite relative?\n Granny"],
         "context_set": [""]
         }
    ]
 }
+

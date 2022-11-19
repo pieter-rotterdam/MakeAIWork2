@@ -1,9 +1,11 @@
 # start this file from folder projects/apple_disease_classification for json file to open correctly
 import nltk
-nltk.download('wordnet') # first use only
+# nltk.download('all') # first use only
 # nltk.download('punkt') #first use only
 from nltk.stem.lancaster import LancasterStemmer
 stemmer = LancasterStemmer()
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
 
 import numpy
 import tflearn
@@ -71,17 +73,16 @@ except:
 
     for intent in data["intents"]:
         for pattern in intent["patterns"]:
-            wrds = nltk.word_tokenize(pattern)
-            words.extend(wrds)
+            wrds = nltk.word_tokenize(pattern) #tokenize the patterns
+            words.extend(wrds) #extend the tokens
             docs_x.append(wrds)
             docs_y.append(intent["tag"])
 
-        if intent["tag"] not in labels:
+        if intent["tag"] not in labels: #add unexisting tags to their labels
             labels.append(intent["tag"])
 
-    words = [stemmer.stem(w.lower()) for w in words if w != "?"]
+    words = [lemmatizer.lemmatize(w.lower()) for w in words if w != "?"]
     words = sorted(list(set(words)))
-
     labels = sorted(labels)
 
     training = []
@@ -92,7 +93,7 @@ except:
     for x, doc in enumerate(docs_x):
         bag = []
 
-        wrds = [stemmer.stem(w.lower()) for w in doc]
+        wrds = [lemmatizer.lemmatize(w.lower()) for w in doc]
 
         for w in words:
             if w in wrds:
@@ -115,28 +116,40 @@ except:
 
 # tensorflow.reset_default_graph()
 
+# net = tflearn.input_data(shape=[None, len(training[0])])
+# net = tflearn.fully_connected(net, 8)
+# net = tflearn.fully_connected(net, 8)
+# net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
+# net = tflearn.regression(net)
+
+# model = tflearn.DNN(net)
+
 net = tflearn.input_data(shape=[None, len(training[0])])
-net = tflearn.fully_connected(net, 8)
-net = tflearn.fully_connected(net, 8)
-net = tflearn.fully_connected(net, len(output[0]), activation="softmax")
+net = tflearn.fully_connected(net, 10)
+net = tflearn.fully_connected(net, 10)
+net = tflearn.fully_connected(net, 10)
+net = tflearn.fully_connected(net, len(output[0]), activation='softmax')
 net = tflearn.regression(net)
 
 model = tflearn.DNN(net)
+model.fit(training, output, n_epoch=500, batch_size=8, show_metric=True)
+model.save('model10.tflearn')
 
 # dit werkt om niet steeds opnieuw te trainen, als dit wel nodig is, try en except weghalen en ook de indent voor model.fit en model.save
 
-try:
-    model.load("model.tflearn")
-except:
+# try:
+#     model.load("modelDO.tflearn")
+# except:
 
-    model.fit(training, output, n_epoch=375, batch_size=8, show_metric=True)
-    model.save("model.tflearn")
+model.fit(training, output, n_epoch=1500, batch_size=8, show_metric=True)
+model.evaluate(batch_size=8)
+model.save("modelcopy.tflearn")
 
 def bag_of_words(s, words):
     bag = [0 for _ in range(len(words))]
 
     s_words = nltk.word_tokenize(s)
-    s_words = [stemmer.stem(word.lower()) for word in s_words]
+    s_words = [lemmatizer.lemmatize(word.lower()) for word in s_words]
 
     for se in s_words:
         for i, w in enumerate(words):
@@ -181,7 +194,7 @@ def chat():
 
         print(random.choice(list(responses)))
 
-chat()
+# chat()
 
 
 
