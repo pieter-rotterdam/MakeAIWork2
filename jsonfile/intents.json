@@ -8,9 +8,9 @@
         "patterns": ["I am Leaving", "cya", "See you later", "adios", "arrivederci", "adieu", "good by", "good day", "sayonara", "cheerio", "au revoir", "good bye", "goodby", "bye bye", "auf wiedersehen", "so long", "goodbye", "bye"],  
         "responses": ["And they lived apple-ly ever after", "Talk to you later Pink Lady, I apple-solutely love you!", "Goodbye Pink Lady!, I apple-laud your great work "],
         "context": [""]
-        },            
+        },       
         {"tag": "statistics",
-        "patterns": ["statistics", "stats", "data", "information", "details", "outcome", "quality", "evaluate", "score", "how can i use", "what can i do with" ],
+        "patterns": ["statistics", "metrics", "stats", "data", "information", "details", "outcome", "quality", "evaluate", "score", "how can i use", "what can i do with" ],
         "responses": ["{batchStatus}\n The batch contained {nbrInBatch} apples.\n {nbrNormal} apple(s), representing {perNormal}% of the batch is/are healthy.\n {nbrBlotch} apple(s), representing {perBlotch}% of the batch is/are blotched.\n {nbrRot} apple(s), representing {perRot}% of the batch is/are rot. \n and {nbrScab} apple(s), representing {perScab}% of the batch is/are scabbed apples.\n In total {nbrRej} apple(s) representing {perRej}% of the batch have been rejected."], 
         "context": [""]
         },
@@ -59,6 +59,11 @@
         "patterns": ["funny", "risable", "comical", "odd", "laughable", "laught", "comic", "good story", "pun", "pleasantry", "antic", "prank", "joke", "amusing", "jape", "gag", "jest", "trick", "put on", "funny story", "funny remark", "mirthful", "laugh", "jocularity", "caper"], 
         "responses": ["What’s an apple’s favorite movie?\n Mr and Mr Smith", "Who’s an apple’s favorite relative?\n Granny"],
         "context_set": [""]
+        },
+        {"tag": "invalid",
+        "patterns": ["Marry me","I love You","date me","chat with me","I am bored"],
+        "responses": ["Please ask an AQL related query."],
+        "context": [""]
         },
         {
         "tag": "thanks",

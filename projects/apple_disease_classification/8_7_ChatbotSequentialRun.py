@@ -85,7 +85,7 @@ def chat():
         for tg in data['intents']:
             if tg['tag'] == tag:
                 responses = [responseReplacer(response) for response in tg['responses']]
-                print(Fore.GREEN + "ChatBot:" + Style.RESET_ALL , np.random.choice(list(responses)))
+                print(Fore.GREEN + "AQL assistant Tim Apple:" + Style.RESET_ALL , np.random.choice(list(responses)))
 
         # print(Fore.GREEN + "ChatBot:" + Style.RESET_ALL,random.choice(responses))
 chat()
@@ -93,3 +93,6 @@ chat()
 #https://towardsdatascience.com/how-to-build-your-own-chatbot-using-deep-learning-bb41f970e281
 
 # also tried with no luck: https://www.analyticsvidhya.com/blog/2021/06/learn-to-develop-a-simple-chatbot-using-python-and-deep-learning/
+
+# if i had all the time in the world for a chatbot project #https://towardsdatascience.com/complete-guide-to-building-a-chatbot-with-spacy-and-deep-learning-d18811465876
+# gui i've seen often: https://solozano0725.medium.com/retrieval-based-chatbots-using-nltk-keras-e4f86b262b17

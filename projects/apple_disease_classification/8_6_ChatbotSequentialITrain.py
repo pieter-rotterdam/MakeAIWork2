@@ -71,3 +71,4 @@ with open('label_encoder.pickle', 'wb') as ecn_file:
     pickle.dump(lbl_encoder, ecn_file, protocol=pickle.HIGHEST_PROTOCOL)
 
 #https://towardsdatascience.com/how-to-build-your-own-chatbot-using-deep-learning-bb41f970e281
+#https://hiteshmishra708.medium.com/build-your-first-chatbot-using-nltk-and-keras-6470501abe28
