@@ -31,7 +31,7 @@ lbl_encoder = LabelEncoder()
 lbl_encoder.fit(training_labels)
 training_labels = lbl_encoder.transform(training_labels)
 
-vocab_size = 1000
+vocab_size = 2000
 embedding_dim = 16
 max_len = 20
 oov_token = "<OOV>"

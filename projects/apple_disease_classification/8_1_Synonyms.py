@@ -3,7 +3,7 @@ import re
 from nltk.corpus import wordnet
 
 # Building a list of Keywords
-list_words=['scab','blotch', 'rot', 'healthy', 'normal', 'good', 'regular', 'goodbye', 'hello', 'bad', 'sick', 'disease', 'unhealthy', 'defect', 'more', 'recommend', 'name', 'more', 'extra', 'joke', 'funny', 'thanks' ]
+list_words=['help', 'scab', 'blotch', 'rot', 'healthy', 'normal', 'good', 'regular', 'goodbye', 'hello', 'bad', 'sick', 'disease', 'unhealthy', 'defect', 'more', 'recommend', 'name', 'more', 'extra', 'joke', 'funny', 'thanks' ]
 list_syn={}
 for word in list_words:
     synonyms=[]

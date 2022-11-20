@@ -1,16 +1,14 @@
-# Importing modules
-import re
-from nltk.corpus import wordnet
+model = Sequential()
+model.add(Embedding(vocab_size, embedding_dim, input_length=max_len))
+model.add(GlobalAveragePooling1D())
+model.add(Dense(16, activation='relu'))
+model.add(Dense(16, activation='relu'))
+model.add(Dense(num_classes, activation='softmax'))
 
-# Building a list of Keywords
-list_words=['scab','blotch', 'rot', 'healthy', 'normal', 'good', 'regular', 'goodbye', 'hello', 'bad', 'sick', 'disease', 'unhealthy', 'defect', 'more', 'recommend', 'name', 'more', 'extra', 'joke', 'funny', 'thanks' ]
-list_syn={}
-for word in list_words:
-    synonyms=[]
-    for syn in wordnet.synsets(word):
-        for lem in syn.lemmas():
-            # Remove any special characters from synonym strings
-            lem_name = re.sub('[^a-zA-Z0-9 \n\.]', ' ', lem.name())
-            synonyms.append(lem_name)
-    list_syn[word]=set(synonyms)
-print (list_syn)
+model.compile(loss='sparse_categorical_crossentropy', 
+              optimizer='adam', metrics=['accuracy'])
+
+model.summary()
+
+epochs = 2000
+history = model.fit(padded_sequences, np.array(training_labels), epochs=epochs)
