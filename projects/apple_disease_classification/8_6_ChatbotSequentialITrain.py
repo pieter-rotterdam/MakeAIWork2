@@ -1,12 +1,12 @@
 import json 
 import numpy as np 
-import tensorflow as tf
-from tensorflow import keras
 from keras.models import Sequential
 from keras.layers import Dense, Embedding, GlobalAveragePooling1D
 from keras.preprocessing.text import Tokenizer
 from keras.preprocessing.sequence import pad_sequences
 from sklearn.preprocessing import LabelEncoder
+import re
+from nltk.corpus import wordnet
 
 with open('../../jsonfile/intents.json') as file:
     data = json.load(file)
@@ -15,7 +15,6 @@ training_sentences = []
 training_labels = []
 labels = []
 responses = []
-
 
 for intent in data['intents']:
     for pattern in intent['patterns']:
@@ -55,7 +54,7 @@ model.compile(loss='sparse_categorical_crossentropy',
 
 model.summary()
 
-epochs = 600
+epochs = 2000
 history = model.fit(padded_sequences, np.array(training_labels), epochs=epochs)
 
 # to save the trained model
@@ -70,3 +69,5 @@ with open('tokenizer.pickle', 'wb') as handle:
 # to save the fitted label encoder
 with open('label_encoder.pickle', 'wb') as ecn_file:
     pickle.dump(lbl_encoder, ecn_file, protocol=pickle.HIGHEST_PROTOCOL)
+
+#https://towardsdatascience.com/how-to-build-your-own-chatbot-using-deep-learning-bb41f970e281

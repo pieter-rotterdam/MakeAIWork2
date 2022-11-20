@@ -56,7 +56,7 @@ def responseReplacer(response):
 def chat():
     # load trained model
     model = keras.models.load_model('sequentialChatModel')
-    print(Fore.YELLOW + "Start messaging with the bot (type quit to stop)!" + Style.RESET_ALL)
+    print(Fore.YELLOW + "Start messaging with AQL assistant Tim Apple (type quit to stop)!" + Style.RESET_ALL)
     # load tokenizer object
     with open('tokenizer.pickle', 'rb') as handle:
         tokenizer = pickle.load(handle)
@@ -69,9 +69,13 @@ def chat():
     max_len = 20
     
     while True:
-        print(Fore.LIGHTBLUE_EX + "User: " + Style.RESET_ALL, end="")
+        print(Fore.LIGHTMAGENTA_EX + "PinkLady User: " + Style.RESET_ALL, end="")
         inp = input()
         if inp.lower() == "quit":
+            break
+        if inp.lower() == "exit":
+            break
+        if inp.lower() == "stop":
             break
 
         result = model.predict(keras.preprocessing.sequence.pad_sequences(tokenizer.texts_to_sequences([inp]),
@@ -85,3 +89,7 @@ def chat():
 
         # print(Fore.GREEN + "ChatBot:" + Style.RESET_ALL,random.choice(responses))
 chat()
+
+#https://towardsdatascience.com/how-to-build-your-own-chatbot-using-deep-learning-bb41f970e281
+
+# also tried with no luck: https://www.analyticsvidhya.com/blog/2021/06/learn-to-develop-a-simple-chatbot-using-python-and-deep-learning/

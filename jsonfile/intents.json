@@ -15,22 +15,22 @@
         "context": [""]
         },
         {"tag": "blotch",
-        "patterns": ["blotched", "blotch"],
+        "patterns": ["blotch", "blotched", "blotching"],
         "responses": ["Out of {nbrInBatch} apples, {nbrBlotch} apple(s), representing {perBlotch}% of the batch is/are blotched", "{perBlotch}% of the apples were blotched, this equals to {nbrBlotch} apple(s) in a sample of {nbrInBatch} apples"],
         "context": [""]
         },
         {"tag": "normal",
-        "patterns": ["Normal", "good", "acceptable", "healthy?"],
+        "patterns": ["Normal", "good", "fine", "regular", "ordinary", "standard", "acceptable", "healthy?"],
         "responses": ["In the batch of {nbrInBatch}, {nbrNormal} apples, representing {perNormal}% of the batch were healthy", "{perNormal}% of the apples in the batch were normal, this ammounts to  {nbrNormal} apples"],
         "context": [""]
         },
         {"tag": "rot",
-        "patterns": ["rot", "rotten", "rotting", "rotted"],
+        "patterns": ["rot", "rotten", "rotting"],
         "responses": ["Out of {nbrInBatch} apples in the batch, {nbrRot} apple(s), representing {perRot}% of the batch is/are rot", "{perRot}% of the apples were rot, this ammounts to {nbrRot} apple(s) in a sample of {nbrInBatch}"],
         "context": [""]
         },
         {"tag": "scab",
-        "patterns": ["scabbed", "scab", "scabbing"],
+        "patterns": ["scab", "scabbed", "scabbing"],
         "responses": ["Out of {nbrInBatch} apples {nbrScab} is/are Scabbed, this is {perScab}%", "{perScab}% of the apples were scabbed, this ammounts to {nbrScab} apple(s)"],
         "context": [""]
         },
@@ -45,20 +45,26 @@
         "context_set": [""]
         },
         {"tag": "help",
-        "patterns": ["help", "reccommendation?",  "recommend"],
+        "patterns": ["helping", "help", "reccommendation?", "help out", "recommend"],
         "responses": ["I provide info on apple quality control.\n You can ask about diseases in apples and the results of a batch of tested apples ", 
         "Apples, Apple sauce and Apple syrup are on the menu!\n They are suitable destinations for the apples from this test.\n You can ask me about the statistics"],
         "context_set": [""]
         },
         {"tag": "more",
         "patterns": ["more", "extra",  "additional"],
-        "responses": ["If you type in the word 'statistics' I'll provide them all", 
+        "responses": ["If you type in the word 'statistics' I'll provide them all"], 
         "context_set": [""]
         },
         {"tag": "joke",
         "patterns": ["funny", "joke", "laugh?", "pun", "pleasantry", "gag"],
         "responses": ["What’s an apple’s favorite movie?\n Mr and Mr Smith", "Who’s an apple’s favorite relative?\n Granny"],
         "context_set": [""]
+        },
+        {
+        "tag": "thanks",
+        "patterns": ["Thanks", "Thank you", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
+        "responses": ["Happy to help!", "Any time!", "My pleasure"],
+        "context": [""]
         }
    ]
 }

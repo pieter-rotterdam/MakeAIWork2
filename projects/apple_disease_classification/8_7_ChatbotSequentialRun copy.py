@@ -1,18 +1,13 @@
 import json 
 import numpy as np
 from tensorflow import keras
-from sklearn.preprocessing import LabelEncoder
-
 import colorama 
 colorama.init()
-from colorama import Fore, Style, Back
-
-import random
+from colorama import Fore, Style
 import pickle
 
 with open('../../jsonfile/intents.json') as file:
     data = json.load(file)
-
 
 def chat():
     # load trained model
