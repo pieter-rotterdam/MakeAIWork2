@@ -66,17 +66,22 @@ def chat():
         lbl_encoder = pickle.load(enc)
 
     # parameters
-    max_len = 20
-    
-    while True:
+    max_len = 200
+    inp, stopCondition = "", ""
+
+    while not stopCondition:
         print(Fore.LIGHTMAGENTA_EX + "PinkLady User: " + Style.RESET_ALL, end="")
         inp = input()
-        if inp.lower() == "quit":
+        stopCondition = inp.lower() in ["quit", "exit", "stop"]
+
+        if (stopCondition):
             break
-        if inp.lower() == "exit":
-            break
-        if inp.lower() == "stop":
-            break
+        # if inp.lower() == "quit":can
+        #     break
+        # if inp.lower() == "exit":
+        #     break
+        # if inp.lower() == "stop":
+        #     break
 
         result = model.predict(keras.preprocessing.sequence.pad_sequences(tokenizer.texts_to_sequences([inp]),
                                              truncating='post', maxlen=max_len))

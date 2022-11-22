@@ -33,7 +33,7 @@ training_labels = lbl_encoder.transform(training_labels)
 
 vocab_size = 2000
 embedding_dim = 16
-max_len = 20
+max_len = 200
 oov_token = "<OOV>"
 
 tokenizer = Tokenizer(num_words=vocab_size, oov_token=oov_token)
@@ -54,7 +54,7 @@ model.compile(loss='sparse_categorical_crossentropy',
 
 model.summary()
 
-epochs = 2000
+epochs = 6000
 history = model.fit(padded_sequences, np.array(training_labels), epochs=epochs)
 
 # to save the trained model

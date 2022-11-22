@@ -1,74 +1,74 @@
 { "intents": [
         {"tag": "greeting",
-        "patterns": ["how do you do", "hullo", "hello", "howdy", "Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up"],
-        "responses": ["Hello Pink Lady employee!", "Good to see you again Pink Lady!", "Hi there Pink Lady employee, how can I help?"],
+        "patterns": ["how do you do", "hullo", "hello", "howdy", "Hi", "How are you", "Is anyone there?", "Hello", "Good day", "Whats up", "Hola how are you?", "How are you doing?", "Hope you are doing well?", "Hello hope you are doing well?"],
+        "responses": ["Hello Pink Lady employee!", "Hello, thanks for coming in", "Hi, what are you up to?", "Hey, what a pleasant surprise", "Good to see you again Pink Lady!", "Hi there Pink Lady employee, how can I help?", "Hello, please type in your question about Apple Quality Labels", "Hello, please ask me your questions about the last tested apples?", "Hi, please ask me AQL related questions"],
         "context": [""]
         },
         {"tag": "goodbye",
-        "patterns": ["I am Leaving", "cya", "See you later", "adios", "arrivederci", "adieu", "good by", "good day", "sayonara", "cheerio", "au revoir", "good bye", "goodby", "bye bye", "auf wiedersehen", "so long", "goodbye", "bye"],  
-        "responses": ["And they lived apple-ly ever after", "Talk to you later Pink Lady, I apple-solutely love you!", "Goodbye Pink Lady!, I apple-laud your great work "],
+        "patterns": ["I am Leaving", "cya", "later", "adios", "arrivederci", "adieu", "good day", "sayonara", "cheerio", "au revoir", "ciao", "auf wiedersehen", "so long", "goodbye", "bye"],  
+        "responses": ["Take it easy, take an apple", "Come back soon", "Bye bye", "Take care", "Talk to you later Pink Lady, I apple-solutely love you!", "Goodbye Pink Lady!, I apple-laud your great work "],
         "context": [""]
         },       
         {"tag": "statistics",
-        "patterns": ["statistics", "metrics", "stats", "data", "information", "details", "outcome", "quality", "evaluate", "score", "how can i use", "what can i do with" ],
-        "responses": ["{batchStatus}\n The batch contained {nbrInBatch} apples.\n {nbrNormal} apple(s), representing {perNormal}% of the batch is/are healthy.\n {nbrBlotch} apple(s), representing {perBlotch}% of the batch is/are blotched.\n {nbrRot} apple(s), representing {perRot}% of the batch is/are rot. \n and {nbrScab} apple(s), representing {perScab}% of the batch is/are scabbed apples.\n In total {nbrRej} apple(s) representing {perRej}% of the batch have been rejected."], 
+        "patterns": ["statistics", "figures", "metrics", "census", "stats", "data", "information", "info", "details", "outcome", "quality", "evaluate", "score", "how can i use", "what can i do with" ],
+        "responses": ["{batchStatus}\n The batch contained {nbrInBatch} apples.\n {nbrNormal} apple(s), representing {perNormal}% of the batch is/are healthy.\n {nbrBlotch} apple(s), representing {perBlotch}% of the batch is/are blotched.\n {nbrRot} apple(s), representing {perRot}% of the batch is/are rot. \n and {nbrScab} apple(s), representing {perScab}% of the batch is/are scabbed apples.\n In total {nbrRej} apple(s) representing {perRej}% of the batch have been rejected.", "{batchStatus}\n Apples in the batch: {nbrInBatch}\n {nbrNormal} Healthy apples\n {perNormal}% Healthy apples\n {nbrBlotch} Blotched apples\n {perBlotch}% Blotched apples\n {nbrRot} Rot apples\n {perRot}% Rot apples\n {nbrScab}Scabbed apples\n {perScab}% Scabbed apples"], 
         "context": [""]
         },
         {"tag": "blotch",
-        "patterns": ["blotch", "blotched", "blotching", "splodge", "mottle", "splotch"],
-        "responses": ["Out of {nbrInBatch} apples, {nbrBlotch} apple(s), representing {perBlotch}% of the batch is/are blotched", "{perBlotch}% of the apples were blotched, this equals to {nbrBlotch} apple(s) in a sample of {nbrInBatch} apples"],
+        "patterns": ["blotch", "blotched", "blotching", "splodge", "mottle", "mottling", "splotch", "blemish", "blot", "patch", "patched", "stain", "stained", "mark", "marked"],
+        "responses": ["Out of {nbrInBatch} apples, {nbrBlotch} apple(s), representing {perBlotch}% of the batch is/are blotched", "{perBlotch}% of the apples were blotched, this equals to {nbrBlotch} apple(s) in a sample of {nbrInBatch} apples", "Apples in the batch: {nbrInBatch}\n {nbrBlotch} Blotched apples\n {perBlotch}% Blotched apples"],
         "context": [""]
         },
         {"tag": "normal",
-        "patterns": ["normal", "steady", "well", "unspoilt", "good", "fine", "right", "conventional", "regular", "acceptable", "standard", "respectable", "goodish", "healthy", "sound", "goodly", "salubrious", "tidy", "safe", "sound", "ripe"], 
-        "responses": ["In the batch of {nbrInBatch}, {nbrNormal} apples, representing {perNormal}% of the batch were healthy", "{perNormal}% of the apples in the batch were normal, this ammounts to  {nbrNormal} apples"],
+        "patterns": ["normal", "steady", "well", "unspoilt", "good", "fine", "right", "regular", "acceptable", "healthy", "salubrious", "tidy", "safe", "sound", "ripe"], 
+        "responses": ["In the batch of {nbrInBatch}, {nbrNormal} apples, representing {perNormal}% of the batch were healthy", "{perNormal}% of the apples in the batch were normal, this ammounts to  {nbrNormal} apples", "Apples in the batch: {nbrInBatch}\n {nbrNormal} Healthy apples\n {perNormal}% Healthy apples"],
         "context": [""]
         },
         {"tag": "rot",
-        "patterns": ["rot", "rotten", "rotting", "decompose", "molder", "rotting", "bunk", "moulder", "putrefaction", "decomposition"], 
-        "responses": ["Out of {nbrInBatch} apples in the batch, {nbrRot} apple(s), representing {perRot}% of the batch is/are rot", "{perRot}% of the apples were rot, this ammounts to {nbrRot} apple(s) in a sample of {nbrInBatch}"],
+        "patterns": ["rot", "rotten", "rotting", "decompose", "molder",  "bunk", "moulder", "putrefaction", "decomposition", "decay", "blight", "detoriate", "putrescene", "canker"], 
+        "responses": ["Out of {nbrInBatch} apples in the batch, {nbrRot} apple(s), representing {perRot}% of the batch is/are rot", "{perRot}% of the apples were rot, this ammounts to {nbrRot} apple(s) in a sample of {nbrInBatch}", "Apples in the batch: {nbrInBatch}\n {nbrRot} Rot apples\n {perRot}% Rot apples"],
         "context": [""]
         },
         {"tag": "scab",
-        "patterns": ["scab", "scabbed", "scabbing"],
-        "responses": ["Out of {nbrInBatch} apples {nbrScab} is/are Scabbed, this is {perScab}%", "{perScab}% of the apples were scabbed, this ammounts to {nbrScab} apple(s)"],
+        "patterns": ["scab", "scabbed", "scabbing", "scabies", "sores", "scales", "incrustation", "bloom", "caking", "rind", "coat", "cover", "film", "layer"],
+        "responses": ["Out of {nbrInBatch} apples {nbrScab} is/are Scabbed, this is {perScab}%", "{perScab}% of the apples were scabbed, this ammounts to {nbrScab} apple(s)", "Apples in the batch: {nbrInBatch}\n {nbrScab} Scabbed apples\n {perScab}% Scabbed apples"],
         "context": [""]
         },
         {"tag": "fault",
-        "patterns": ["flaw", "fault", "mar", "shortcoming", "blemish", "unhealthful", "insalubrious", "risky", "ghastly", "ill", "disturbed", "defective", "sickish", "gruesome", "disease", "grisly", "macabre", "disgusted", "grim", "pallid", "diseased", "defect", "defects", "defected", "unhealthy", "unsound", "regretful", "unfit", "spoilt", "speculative", "spoiled", "high risk", "badness", "bad", "badly", "uncollectible"], 
-        "responses": ["Out of {nbrInBatch} apples {nbrRej} representing {perRej}% of the batch, were unhealthy.\n among them is/are {nbrRot} rotten, {nbrScab} scabbed and {nbrBlotch} blotched apples", "{perRej}% of the apples were unhealthy, this equals to {nbrRej} apple(s)\n Among them were {nbrRot} rotten, {nbrScab} scabbed and {nbrBlotch} blotched apple(s)"],
+        "patterns": ["flaw", "fault", "shortcoming", "blemish", "unhealth", "sick", "disease", "defect", "unsound", "unfit", "spoil", "speculative", "high risk", "bad", "uncollectible"], 
+        "responses": ["Out of {nbrInBatch} apples {nbrRej} representing {perRej}% of the batch, were unhealthy.\n among them is/are {nbrRot} rotten, {nbrScab} scabbed and {nbrBlotch} blotched apples", "{perRej}% of the apples were unhealthy, this equals to {nbrRej} apple(s)\n Among them were {nbrRot} rotten, {nbrScab} scabbed and {nbrBlotch} blotched apple(s)", "{nbrInBatch} apples in this batch\n {nbrRej} rejected\n {perRej}% rejected\n {nbrBlotch} Blotched apples\n {perBlotch}% Blotched apples\n {nbrRot} Rot apples\n {perRot}% Rot apples\n {nbrScab} Scabbed apples\n {perScab}% Scabbed apples"],
         "context": [""]
         },
         {"tag": "name",
-        "patterns": ["How may I call you", "what should I call you", "identify", "refer", "cite", "epithet", "whats your name?"],
+        "patterns": ["How may I call you", "what should I call you", "identify", "refer", "cite", "epithet", "name", "do you have a name", "what are you called", "what is your name", "who are you", "who is this", "what am i chatting to", "who am i taking to", "what are you"],
         "responses": ["You can call me Tim Apple\n A core belief is that apple puns make me smile", "I'm Tim Apple!\n and you’re so a-peel-ing", "I'm Tim Cook \n aka Tim Apple."],
         "context_set": [""]
         },
         {"tag": "help",
-        "patterns": ["helping", "help", "commend", "assist", "assistance", "assistant", "avail", "aid", "facilitate", "serve", "service", "urge", "reccommendation?", "help out", "recommend"],
+        "patterns": ["help", "commend", "assist", "support", "avail", "aid", "facilitate", "serve", "service", "help out", "what can you do", "things you can do", "what can u do for me", "how u can help me", "why i should use you"],
         "responses": ["I provide info on apple quality control.\n You can ask about diseases in apples and the results of a batch of tested apples ", 
         "Apples, Apple sauce and Apple syrup are on the menu!\n They are suitable destinations for the apples from this test.\n You can ask me about the statistics"],
         "context_set": [""]
         },
         {"tag": "more",
-        "patterns": ["more", "extra",  "additional", "more than", "supererogatory", "spare", "surplus"],
+        "patterns": ["more", "extra", "further", "another", "supplementary", "added", "larger", "increased", "likewise", "more than that", "larger", "additional", "supererogatory", "spare", "surplus"],
         "responses": ["If you type in the word 'statistics' I'll provide them all"], 
         "context_set": [""]
         },
         {"tag": "joke",
-        "patterns": ["funny", "risable", "comical", "odd", "laughable", "laught", "comic", "good story", "pun", "pleasantry", "antic", "prank", "joke", "amusing", "jape", "gag", "jest", "trick", "put on", "funny story", "funny remark", "mirthful", "laugh", "jocularity", "caper"], 
-        "responses": ["What’s an apple’s favorite movie?\n Mr and Mr Smith", "Who’s an apple’s favorite relative?\n Granny"],
+        "patterns": ["funny", "comical", "laughable", "comic", "good story", "pun", "prank", "joke", "amusing", "gag", "jest", "funny story", "funny remark", "mirthful", "laugh"], 
+        "responses": ["What’s an apple’s favorite movie?\n Mr and Mr Smith", "Who’s an apple’s favorite relative?\n Granny", "Why did the apple pie go to the dentist?\n Because it needed a filling.", "What do you call two apples next to each other?\n A pear","What is a math teacher’s favourite dessert?\n Apple Pi."],
         "context_set": [""]
         },
         {"tag": "invalid",
-        "patterns": ["Marry me","I love You","date me","chat with me","I am bored"],
+        "patterns": ["Marry me", "Will I ever find happiness?", "I love You","date me","chat with me","I am bored", "are you threatening me", "are you ok", "What are your hobbies?", "Do you like someone?", "Do you have a boyfriend or girlfriend?", "Do you like me?", "What is your favourite movie?", "What's your favourite song?", "What is your aim in life?"],
         "responses": ["Please ask an AQL related query."],
         "context": [""]
         },
         {
         "tag": "thanks",
-        "patterns": ["Thanks", "Thank you", "thank", "give thanks", "That's helpful", "Awesome, thanks", "Thanks for helping me"],
-        "responses": ["Happy to help!", "Any time!", "My pleasure"],
+        "patterns": ["Thanks", "Thank you", "give thanks", "That's helpful", "Awesome, thanks", "merci", "gracias", "danke", "Thanks for helping me", "nice work", "well done", "good job", "thanks for the help", "ok, thank you"],
+        "responses": ["Happy to help!", "Any time!", "My pleasure", "You're Welcome", "Welcome, anything else i can assist you with?"],
         "context": [""]
         }
    ]
