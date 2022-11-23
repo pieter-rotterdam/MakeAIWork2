@@ -7,6 +7,9 @@ from keras.preprocessing.sequence import pad_sequences
 from sklearn.preprocessing import LabelEncoder
 import re
 from nltk.corpus import wordnet
+import logging
+
+logging.basicConfig(level=logging.INFO)
 
 with open('../../jsonfile/intents.json') as file:
     data = json.load(file)
