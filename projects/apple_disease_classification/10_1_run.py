@@ -1,6 +1,6 @@
 import colorama 
 colorama.init()
-from colorama import Fore, Back, Style
+from colorama import Fore, Style
 import json 
 import os
 import numpy as np
@@ -42,8 +42,7 @@ model = tf.keras.models.load_model(
        ('./models/appleclassifier73transfer.h5'),
        custom_objects={'KerasLayer':hub.KerasLayer})
 
-print (Fore.WHITE + Back.GREEN + "Model Loaded, please wait for the predictions")
-
+print ("Model Loaded, please wait for the predictions")
 
 #make predictions and stats
 predList = []
@@ -67,7 +66,7 @@ for x in list_samples:
     pred = (np.argmax(batch, axis=-1))  
     # print(f'Sample: {x} prediction: {pred} ')
     predList.append(pred)
-    print(Fore.WHITE + Back.BLUE + f'predictions {x} of 10 done.')
+    print(f'predictions {x} of 10 done.')
 
 for pred in predList:
     unique2, counts2 = np.unique(pred, return_counts=True)
@@ -86,15 +85,15 @@ for pred in predList:
     nbrRej = int(nbrBlotch)+int(nbrRot)+int(nbrScab)
     nbrRejList.append(nbrRej)
 
-    percBlotch = round(int(nbrBlotch)/int(nbrInBatch)*100,2)
+    percBlotch = int(nbrBlotch)/int(nbrInBatch)*100
     percBlotchList.append(percBlotch)
-    percNormal = round(int(nbrNormal)/int(nbrInBatch)*100,2)
+    percNormal = int(nbrNormal)/int(nbrInBatch)*100
     percNormalList.append(percNormal)
-    percRot = round(int(nbrRot)/int(nbrInBatch)*100,2)
+    percRot = int(nbrRot)/int(nbrInBatch)*100
     percRotList.append(percRot)
-    percScab = round(int(nbrScab)/int(nbrInBatch)*100,2)
+    percScab = int(nbrScab)/int(nbrInBatch)*100
     percScabList.append(percScab)
-    percRej = round(int(nbrRej)/int(nbrInBatch)*100,2)
+    percRej = int(nbrRej)/int(nbrInBatch)*100
     percRejList.append(percRej)
 
     if nbrInBatch != 80:
@@ -112,10 +111,7 @@ for pred in predList:
     batchStatusList.append(batchStatus)
 
 print (nbrNormalList)
-print (nbrNormalList[1])
 print (batchStatusList)
-
-
 
 def responseReplacer(response):
     response = response.replace("{nbrInBatch}", str(nbrInBatch))
@@ -135,7 +131,7 @@ def responseReplacer(response):
 def chat():
     # load trained model
     model = keras.models.load_model('sequentialChatModel')
-    print(Fore.WHITE + Back.RED + "Start messaging with AQL assistant Tim Apple (type quit to stop)!" + Style.RESET_ALL)
+    print(Fore.YELLOW + "Start messaging with AQL assistant Tim Apple (type quit to stop)!" + Style.RESET_ALL)
     # load tokenizer object
     with open('tokenizer.pickle', 'rb') as handle:
         tokenizer = pickle.load(handle)
@@ -149,7 +145,7 @@ def chat():
     inp, stopCondition = "", ""
 
     while not stopCondition:
-        print(Fore.WHITE + Back.LIGHTMAGENTA_EX + "PinkLady User: " + Style.RESET_ALL, end="")
+        print(Fore.LIGHTMAGENTA_EX + "PinkLady User: " + Style.RESET_ALL, end="")
         inp = input()
         stopCondition = inp.lower() in ["quit", "exit", "stop"]
 
@@ -169,7 +165,7 @@ def chat():
         for tg in data['intents']:
             if tg['tag'] == tag:
                 responses = [responseReplacer(response) for response in tg['responses']]
-                print(Fore.WHITE+ Back.LIGHTBLUE_EX + "AQL assistant Tim Apple:" + Style.RESET_ALL , np.random.choice(list(responses)))
+                print(Fore.GREEN + "AQL assistant Tim Apple:" + Style.RESET_ALL , np.random.choice(list(responses)))
 
         # print(Fore.GREEN + "ChatBot:" + Style.RESET_ALL,random.choice(responses))
 chat()
