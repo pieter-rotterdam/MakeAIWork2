@@ -22,12 +22,12 @@ useBatches = ImageDataGenerator(preprocessing_function=tf.keras.applications.mob
     directory=usePath, target_size=(224,224))
 
 #create sample numbers 1-317
-def display():
+def sampler():
     samples = []
     for i in range(317): # This is just to tell you how to create a list.
         samples.append(i)
     return samples
-batchSampleNbrs=display()
+batchSampleNbrs=sampler()
 # removedSampleNbrs = batchSampleNbrs.pop(0)
 
 # create 10 random samples of 80 in the list of 317 and create variable sample1-10

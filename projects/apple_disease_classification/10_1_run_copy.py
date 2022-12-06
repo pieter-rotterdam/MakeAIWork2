@@ -67,9 +67,9 @@ batchSampleNbrs = samplecreator(nbrFilesInFolder)
 # create ammount samples of aqlSampleSize in the list of 317 and create variable sample1-10
 listSamples = []
 for k in range(10):
-    listSamples = f'batch{k}'
-listSamples.append(listSamples)
-        
+    listSample = f'batch{k}'
+listSamples.append(listSample)
+      
 #load model
 def model(modelLocation):
     tf.keras.models.load_model((modelLocation),
@@ -88,36 +88,39 @@ def classifier(listSamples, useBatches):
         print(Fore.WHITE + Back.BLUE + f'predictions {x} of 10 done.')
         return predList
 
+nbrInBatch = 0
+
 def statcreator(predList):
     for pred in predList:    
         nbrInBatch = (len(pred))
         unique2, counts2 = np.unique(pred, return_counts=True)
         stats = dict(zip(unique2, counts2))
     
-        # ammounts
+    # ammounts
         nbrBlotch = stats[0]
         nbrNormal = stats[1]
         nbrRot = stats[2]
         nbrScab = stats[3]
         nbrRej = int(nbrBlotch)+int(nbrRot)+int(nbrScab)
 
-        # list with ammounts
-        nbrBlotchList.append(nbrBlotch)
-        nbrNormalList.append(nbrNormal)
-        nbrRotList.append(nbrRot)
-        nbrScabList.append(nbrScab)
-        # lists with rejected and number of apples in batch
-        nbrRejList.append(nbrRej)
-        nbrInBatchList.append(nbrInBatch)
-
-        # perentages
+     # perentages
         perBlotch = round(int(nbrBlotch)/int(nbrInBatch)*100,2)
         perNormal = round(int(nbrNormal)/int(nbrInBatch)*100,2)
         perRot = round(int(nbrRot)/int(nbrInBatch)*100,2)
         perScab = round(int(nbrScab)/int(nbrInBatch)*100,2)
         perRej = round(int(nbrRej)/int(nbrInBatch)*100,2)
-    
-        # list with perentages
+     
+      # list with ammounts
+        nbrBlotchList.append(nbrBlotch)
+        nbrNormalList.append(nbrNormal)
+        nbrRotList.append(nbrRot)
+        nbrScabList.append(nbrScab)
+       
+     # lists with rejected and number of apples in batch
+        nbrRejList.append(nbrRej)
+        nbrInBatchList.append(nbrInBatch)
+       
+     # list with perentages
         perBlotchList.append(perBlotch)
         perNormalList.append(perNormal)
         perRotList.append(perRot)
